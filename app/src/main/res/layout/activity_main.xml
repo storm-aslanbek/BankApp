@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#27304f"
+    android:background="#ffffff"
     >
 
     <TextView
@@ -20,7 +20,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:text="Кіру/Тіркелу"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

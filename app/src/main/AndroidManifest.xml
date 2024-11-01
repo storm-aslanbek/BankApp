@@ -20,7 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".RegActivity"
-            android:exported="true">
+            android:exported="false">
         </activity>
         <activity
             android:name=".MainActivity"

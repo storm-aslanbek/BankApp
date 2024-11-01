@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegActivity"
-    android:background="#27304f"
+    android:background="#ffffff"
     >
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_gravity="center"
         android:inputType="text"
         android:hint="Тегіңізді еңгізіңіз"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         android:textColorHint="#7e7f80"
         />
 
@@ -45,7 +45,7 @@
         android:layout_gravity="center"
         android:inputType="text"
         android:hint="Есіміңізді еңгізіңіз"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         android:textColorHint="#7e7f80"
         />
 
@@ -58,11 +58,12 @@
         android:ems="10"
         android:hint="Телефон номерін еңгізіңіз"
         android:inputType="phone"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         android:textColorHint="#7e7f80" />
 
     <EditText
         android:id="@+id/passwordInput"
+        android:clickable="true"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -70,7 +71,7 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:hint="Құпия сөз ойлап табыңыз"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         android:textColorHint="#7e7f80"
         />
 
@@ -94,7 +95,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:text="Аккаунтқа кіру"
-        android:textColor="#ffffff"
+        android:textColor="#27304f"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

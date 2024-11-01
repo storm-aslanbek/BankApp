@@ -2,9 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Telephony.Mms.Intents
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,17 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myapplication.databinding.ActivityAuthBinding
-import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.retrofit.AuthPost
 import com.example.myapplication.retrofit.MainAPI
-import com.example.myapplication.retrofit.PostUserData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class AuthActivity : AppCompatActivity() {
     lateinit var binding: ActivityAuthBinding
@@ -47,21 +43,24 @@ class AuthActivity : AppCompatActivity() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.0.100:8000").client(client)
+            .baseUrl("http://172.20.10.7:8000/").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
         val mainApi = retrofit.create(MainAPI::class.java)
 
         binding.authButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val user = mainApi.auth(
-                    PostUserData(
-                        binding.phoneAuthInput.text.toString()
+                    AuthPost(
+                        binding.phoneAuthInput.text.toString(),
+                        binding.passwordAuthInput.text.toString()
                     )
                 )
-                runOnUiThread {
-                    binding.apply {
-                        firstNameInfo.text = user.first_name
-                        lastNameInfo.text = user.last_name
+
+                withContext(Dispatchers.Main) {
+                    if (user.isSuccessful) {
+                        Toast.makeText(this@AuthActivity, "Login successful!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@AuthActivity, "Login failed!", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
