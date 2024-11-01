@@ -1,26 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#ffffff"
-    >
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="#FFFFFF">
 
-    <TextView
+<!-- Жоғарғы іздеу жолағы және мәзір батырмасы -->
+    <LinearLayout
         android:id="@+id/linkAuthText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:fitsSystemWindows="true"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_alipay"
+            android:contentDescription="Кіру/тіркелу" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="Кіру/тіркелу"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+<!--<RelativeLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:padding="16dp">-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/menuButton"-->
+<!--        android:layout_width="48dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--        android:contentDescription="Мәзірді ашу"-->
+<!--        android:src="@drawable/ic_menu" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/searchBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_toEndOf="@id/menuButton"-->
+<!--        android:drawableStart="@drawable/ic_search"-->
+<!--        android:hint="Іздеу"-->
+<!--        android:padding="10dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:inputType="text" />-->
+<!--</RelativeLayout>-->
+
+<!-- Иконкаларға арналған Grid Layout -->
+
+<!-- Астындағы панель: Басты бет, QR, Хабарламалар -->
+
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
+        android:columnCount="2"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:text="Кіру/Тіркелу"
-        android:textColor="#27304f"
-        tools:ignore="HardcodedText" />
+        android:padding="6dp"> <!-- Центрирует содержимое -->
+
+        <!-- Элементы в GridLayout -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="35dp"
+            android:gravity="center"
+            android:orientation="vertical"> <!-- Отступ между элементами -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Менің Банкім"
+                android:alpha="0.7"
+                android:src="@drawable/ic_bank" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Менің Банкім"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="35dp"
+            android:gravity="center"
+            android:orientation="vertical"> <!-- Отступ между элементами -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Төлемдер"
+                android:src="@drawable/ic_payments" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Төлемдер"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="35dp"
+            android:gravity="center"
+            android:orientation="vertical"> <!-- Отступ между элементами -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Аударымдар"
+                android:src="@drawable/ic_transfer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Аударымдар"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="35dp"
+            android:gravity="center"
+            android:orientation="vertical"> <!-- Отступ между элементами -->
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:contentDescription="FAQ"
+                android:alpha="0.6"
+                android:src="@drawable/ic_faq" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="FAQ"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </GridLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="265dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="191dp"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            app:srcCompat="@drawable/ic_bank" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:fitsSystemWindows="true">
+
+        <!-- Другие элементы вашей страницы (например, содержимое) -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:background="#EEEEEE"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="1dp"> <!-- Располагает панель внизу родительского элемента -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Басты бет"
+                    android:src="@drawable/ic_home2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Басты бет"
+                    android:textColor="#fcc603"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="QR"
+                    android:src="@drawable/ic_qr_payment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="QR"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Хабарламалар"
+                    android:src="@drawable/ic_notifications1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Хабарламалар"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

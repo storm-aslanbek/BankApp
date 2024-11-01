@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -74,11 +75,17 @@ class RegActivity : AppCompatActivity() {
         }
 
 
-        val linkToAuth: TextView = findViewById(R.id.linkAuthText)
-
+        val linkToAuth: TextView = binding.linkAuthText
         linkToAuth.setOnClickListener {
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
+
+        val homeButton: LinearLayout = binding.homeButtonReg
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 }

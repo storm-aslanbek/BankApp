@@ -7,65 +7,151 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AuthActivity"
-    android:background="#ffffff"
-    >
+    android:background="#ffffff">
 
-    <TextView
-        android:id="@+id/authText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/authText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Аккаунтқа кіріңіз"
+            android:textColor="#fcc603"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phoneAuthInput"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Телефон номерін еңгізіңіз"
+            android:inputType="phone"
+            android:textColor="#fcc603"
+            android:textColorHint="#7e7f80" />
+
+        <EditText
+            android:id="@+id/passwordAuthInput"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:inputType="textPassword"
+            android:hint="Құпия сөзді енгізіңіз"
+            android:textColor="#fcc603"
+            android:textColorHint="#7e7f80" />
+
+        <Button
+            android:id="@+id/authButton"
+            android:layout_width="220dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#fcc603"
+            android:textStyle="bold"
+            android:text="Кіру" />
+
+        <TextView
+            android:id="@+id/linkRegText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Аккаунт құру"
+            android:textColor="#fcc603" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="170dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Аккаунтқа кіріңіз"
-        android:textColor="#fcc603"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:background="#EEEEEE"
+        android:padding="1dp"> <!-- Панель внизу родительского элемента -->
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/phoneAuthInput"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Телефон номерін еңгізіңіз"
-        android:inputType="phone"
-        android:textColor="#fcc603"
-        android:textColorHint="#7e7f80" />
+            <LinearLayout
+                android:id="@+id/homeButtonAuth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/passwordAuthInput"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:inputType="textPassword"
-        android:hint="Құпия сөзді енгізіңіз"
-        android:textColor="#fcc603"
-        android:textColorHint="#7e7f80" />
+                <ImageView
+                    android:id="@+id/home_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Басты бет"
+                    android:src="@drawable/ic_home2" />
 
-    <Button
-        android:id="@+id/authButton"
-        android:layout_width="220dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#fcc603"
-        android:textStyle="bold"
-        android:text="Кіру" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Басты бет"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/linkRegText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:text="Аккаунт құру"
-        android:textColor="#fcc603" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="QR"
+                    android:src="@drawable/ic_qr_payment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="QR"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Хабарламалар"
+                    android:src="@drawable/ic_notifications1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Хабарламалар"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </LinearLayout>
