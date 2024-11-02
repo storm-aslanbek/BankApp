@@ -1,135 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MyBankActivity"
-    android:background="#ffffff">
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    tools:context=".TransactionsActivity"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <ImageView
-            android:id="@+id/profilePhoto"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="Кіру/тіркелу"
-            android:src="@drawable/ic_alipay" />
-
-        <TextView
-            android:id="@+id/profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="center_vertical"
-            android:text="Кіру/тіркелу"
-            android:padding="10dp"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/exitButton"
-            android:layout_width="124dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="#fcc603"
-            android:text="Шығу" />
-
-    </LinearLayout>
+        android:text="Аударым жасау"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="#fcc603"
+        android:textSize="40sp"
+        android:layout_marginBottom="16dp"/>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp">
+        android:padding="16dp">
+
+        <!-- Текст с текущей суммой счета -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Баланс:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
-        android:id="@+id/balanceText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="XXXXXX теңге"
-        android:textColor="#fcc603"
-        android:textSize="50sp" />
+            android:id="@+id/current_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXXX ₸"
+            android:textColor="#fcc603"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Поле ввода номера телефона получателя -->
+        <EditText
+            android:id="@+id/recipient_phone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Қабылдаушы телефон номері"
+            android:inputType="phone"
+            android:textColor="#000000"
+            android:backgroundTint="#fcc603"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Поле ввода суммы перевода -->
+        <EditText
+            android:id="@+id/transfer_amount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Аударым суммасы"
+            android:inputType="numberDecimal"
+            android:textColor="#000000"
+            android:backgroundTint="#fcc603"
+            android:layout_marginBottom="24dp"/>
 
         <TextView
-            android:id="@+id/phoneNumberText"
+            android:id="@+id/userStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="phone_number"
-            android:textSize="20sp" />
+            android:gravity="center"
+            android:textSize="30sp"
+            android:text="" />
+
+        <!-- Кнопка подтверждения перевода -->
+        <Button
+            android:id="@+id/check_user_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Қолданушыны тексеру"
+            android:backgroundTint="#fcc603"
+            android:alpha="0.5"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/confirm_transfer_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Растау"
+            android:backgroundTint="#fcc603"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
-
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:layout_gravity="center"
-        android:padding="6dp">
-
-        <LinearLayout
-            android:id="@+id/transactionsMyBank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Аударымдар"
-                android:src="@drawable/ic_transfer" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Аударымдар"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:gravity="center"
-            android:orientation="vertical"> <!-- Отступ между элементами -->
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Төлемдер"
-                android:src="@drawable/ic_payments" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Төлемдер"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </GridLayout>
-
     <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="192dp"
         android:background="#FFFFFF">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="60dp"
+            android:layout_width="376dp"
             android:layout_height="191dp"
             android:layout_weight="1"
             android:alpha="0.5"
@@ -155,7 +131,7 @@
             android:padding="1dp"> <!-- Располагает панель внизу родительского элемента -->
 
             <LinearLayout
-                android:id="@+id/homeButtonBank"
+                android:id="@+id/homeButtonTransactions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

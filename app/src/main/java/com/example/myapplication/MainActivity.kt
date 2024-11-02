@@ -50,6 +50,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val transactions: LinearLayout = findViewById(R.id.transactionsMain)
+        transactions.setOnClickListener {
+            val intent = Intent(this, TransactionsActivity::class.java)
+            startActivity(intent)
+        }
+
 //        Ссылки профиля, авторизации
         val linkToAuth: TextView = findViewById(R.id.profile)
         linkToAuth.setOnClickListener {

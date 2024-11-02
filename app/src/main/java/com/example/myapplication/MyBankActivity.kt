@@ -82,7 +82,7 @@ class MyBankActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             val real_balance = authResponse.balance
-                            findViewById<TextView>(R.id.balanceText).text = real_balance.toString()
+                            findViewById<TextView>(R.id.balanceText).text = real_balance.toString() + "₸"
 
 
                         }
@@ -101,6 +101,12 @@ class MyBankActivity : AppCompatActivity() {
         val homeButton: LinearLayout = findViewById(R.id.homeButtonBank)
         homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        val transactions: LinearLayout = findViewById(R.id.transactionsMyBank)
+        transactions.setOnClickListener {
+            val intent = Intent(this, TransactionsActivity::class.java)
             startActivity(intent)
         }
 

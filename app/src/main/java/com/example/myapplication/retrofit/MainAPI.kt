@@ -14,4 +14,7 @@ interface MainAPI {
 
     @POST("auth/")
     suspend fun auth(@Body authRequest: AuthPost): Response<AuthResponse>
+
+    @POST("user_search/")
+    suspend fun user_search(@Body authRequest: SearchPost): Response<SearchResponse>
 }
