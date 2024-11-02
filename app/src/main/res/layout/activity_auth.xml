@@ -36,7 +36,7 @@
             android:ems="10"
             android:hint="Телефон номерін еңгізіңіз"
             android:inputType="phone"
-            android:textColor="#fcc603"
+            android:textColor="#000000"
             android:textColorHint="#7e7f80" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:inputType="textPassword"
             android:hint="Құпия сөзді енгізіңіз"
-            android:textColor="#fcc603"
+            android:textColor="#000000"
             android:textColorHint="#7e7f80" />
 
         <Button

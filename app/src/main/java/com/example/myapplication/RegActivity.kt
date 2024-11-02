@@ -13,7 +13,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.bank.User
 import com.example.myapplication.databinding.ActivityAuthBinding
 import com.example.myapplication.databinding.ActivityRegBinding
 import com.example.myapplication.retrofit.MainAPI
@@ -21,6 +20,7 @@ import com.example.myapplication.retrofit.PostUserData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -50,22 +50,32 @@ class RegActivity : AppCompatActivity() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://172.20.10.7:8000/").client(client)
+            .baseUrl("http://192.168.0.100:8000").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
         val mainApi = retrofit.create(MainAPI::class.java)
 
+        val startBalance = 50000
+
         binding.registerButton.setOnClickListener {
-            Log.d("RegActivity", "Button clicked")
             CoroutineScope(Dispatchers.IO).launch {
-                Log.d("RegActivity", "Coroutine started")
                 val user = mainApi.register(
                     PostUserData(
                         binding.lastNameInput.text.toString(),
                         binding.firstNameInput.text.toString(),
                         binding.phoneInput.text.toString(),
-                        binding.passwordInput.text.toString()
+                        binding.passwordInput.text.toString(),
+                        startBalance
                     )
                 )
+
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@RegActivity, "Жүйеге тіркелдіңіз! " +
+                                "Деректерді қайта еңгңзіп, жүйеге кіріңіз", Toast.LENGTH_LONG
+                    ).show()
+                }
+                val intent = Intent(this@RegActivity, AuthActivity::class.java)
+                startActivity(intent)
 //                runOnUiThread {
 //                    binding.apply {
 //                        statusText.text = user.last_name

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:background="#FFFFFF">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyBankActivity"
+    android:background="#ffffff">
 
-<!-- Жоғарғы іздеу жолағы және мәзір батырмасы -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +36,7 @@ android:background="#FFFFFF">
 
         <Button
             android:id="@+id/exitButton"
-            android:layout_width="128dp"
+            android:layout_width="124dp"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
             android:backgroundTint="#fcc603"
@@ -42,64 +44,46 @@ android:background="#FFFFFF">
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+        android:id="@+id/balanceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="XXXXXX теңге"
+        android:textColor="#fcc603"
+        android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/phoneNumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="phone_number"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:layout_gravity="center"
-        android:padding="6dp"> <!-- Центрирует содержимое -->
-
-        <!-- Элементы в GridLayout -->
-        <LinearLayout
-            android:id="@+id/myBank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:gravity="center"
-            android:orientation="vertical"> <!-- Отступ между элементами -->
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Менің Банкім"
-                android:alpha="0.7"
-                android:src="@drawable/ic_bank" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Менің Банкім"
-                android:textSize="20sp" />
-        </LinearLayout>
+        android:padding="6dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="35dp"
             android:gravity="center"
-            android:orientation="vertical"> <!-- Отступ между элементами -->
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Төлемдер"
-                android:src="@drawable/ic_payments" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Төлемдер"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:gravity="center"
-            android:orientation="vertical"> <!-- Отступ между элементами -->
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="48dp"
@@ -123,25 +107,23 @@ android:background="#FFFFFF">
             android:orientation="vertical"> <!-- Отступ между элементами -->
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:contentDescription="FAQ"
-                android:alpha="0.6"
-                android:src="@drawable/ic_faq" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Төлемдер"
+                android:src="@drawable/ic_payments" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Қолдау"
+                android:text="Төлемдер"
                 android:textSize="20sp" />
         </LinearLayout>
     </GridLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="265dp"
+        android:layout_height="192dp"
         android:background="#FFFFFF">
 
         <ImageView
@@ -158,7 +140,7 @@ android:background="#FFFFFF">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        android:fitsSystemWindows="true">
+        android:padding="1dp">
 
         <!-- Другие элементы вашей страницы (например, содержимое) -->
 
@@ -172,6 +154,7 @@ android:background="#FFFFFF">
             android:padding="1dp"> <!-- Располагает панель внизу родительского элемента -->
 
             <LinearLayout
+                android:id="@+id/homeButtonBank"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -189,7 +172,6 @@ android:background="#FFFFFF">
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Басты бет"
-                    android:textColor="#fcc603"
                     android:textSize="15sp" />
             </LinearLayout>
 
@@ -237,5 +219,6 @@ android:background="#FFFFFF">
         </LinearLayout>
 
     </RelativeLayout>
+
 
 </LinearLayout>

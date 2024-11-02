@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface MainAPI {
-    @GET("items/1")
+    @GET("items/")
     suspend fun getUserById(): UserData
 
     @POST("register/")

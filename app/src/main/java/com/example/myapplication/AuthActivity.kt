@@ -56,30 +56,14 @@ class AuthActivity : AppCompatActivity() {
         fun saveUserData(authResponse: AuthResponse) {
             val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString("status", authResponse.status)
-            editor.putString("message", authResponse.message)
+            editor.putString("phone_number", authResponse.phone_number)
+            editor.putString("password", authResponse.password)
+            editor.putString("last_name", authResponse.last_name)
+            editor.putString("first_name", authResponse.first_name)
             editor.apply()
         }
 
 
-
-//        binding.authButton.setOnClickListener {
-//            CoroutineScope(Dispatchers.IO).launch {
-//                val user = mainApi.auth(
-//                    AuthPost(
-//                        binding.phoneAuthInput.text.toString(),
-//                        binding.passwordAuthInput.text.toString()
-//                    )
-//                )
-//
-//                withContext(Dispatchers.Main) {
-//                    if (user.isSuccessful) {
-//                        Toast.makeText(this@AuthActivity, "Login successful!", Toast.LENGTH_SHORT).show()
-//                    } else {
-//                        Toast.makeText(this@AuthActivity, "Login failed!", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
         binding.authButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val response = mainApi.auth(
@@ -93,15 +77,14 @@ class AuthActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         response.body()?.let { authResponse ->
                             saveUserData(authResponse) // Сохраняем данные пользователя
-                            Toast.makeText(this@AuthActivity, "Login successful!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@AuthActivity, "Жүйеге кірдіңіз!", Toast.LENGTH_SHORT).show()
 
-                            // Переход к личному кабинету
                             val intent = Intent(this@AuthActivity, MainActivity::class.java)
                             startActivity(intent)
-                            finish() // Закрываем текущую активность
+                            finish()
                         }
                     } else {
-                        Toast.makeText(this@AuthActivity, "Login failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@AuthActivity, "Жүйеге кіре алмадыңыз!", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
